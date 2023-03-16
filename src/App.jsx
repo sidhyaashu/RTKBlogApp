@@ -24,20 +24,19 @@
 
 import './App.css'
 import PostAddForm from './component/social/PostAddForm'
-// import Counter from './component/counter/Counter'
+import Counter from './component/counter/Counter'
 import PostList from './component/social/PostList'
 import SinglePostPage from './component/social/SinglePostPage'
 import Layout from './otherComponents/Layout'
-import { Routes,Route } from 'react-router-dom'
+import { Routes,Route,Navigate } from 'react-router-dom'
 import Header from './otherComponents/Header'
 import EditPostForm from './component/social/EditPostForm'
+import UserPage from './component/user/UserPage'
+import UsersList from './component/user/UsersList'
 
-      // <Counter/>
-      // <PostAddForm/>
-      // <PostList/>
-      // <SinglePostPage/>
 
-function App() {
+
+const App=()=> {
   
 
 
@@ -45,14 +44,27 @@ function App() {
       <>
     <Header/>
       <Routes>
+
         <Route path='/' element={<Layout/>}/>
+
         <Route index element={<PostList/>}/>
+
         <Route path='post'>
           <Route index element={<PostAddForm/>}/>
           <Route path=':postId' element={<SinglePostPage/>}/>
           <Route path='edit/:postId' element={<EditPostForm/>}/>
-          {/* <Route path='counter' element={<Counter/>}/> */}
         </Route>
+
+        <Route path='user'>
+          <Route index element={<UsersList/>}/>
+          <Route path=':userId' element={<UserPage/>}/>
+        </Route>
+
+        <Route path='counter' element={<Counter/>}/>
+
+        <Route path='*' element={<Navigate to='/' replace/>}/>
+
+
       </Routes> 
       </>
   )

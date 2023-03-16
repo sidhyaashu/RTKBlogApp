@@ -4,10 +4,13 @@ import PostAuthor from './PostAuthor'
 import TimeAgo from './TimeAgo'
 import ReactionButton from './ReactionButton'
 import { NavLink } from 'react-router-dom'
+// import { useSelector } from 'react-redux' //optimized
+// import { selectPostById } from './socialSlice.js' //optimized
+
 
 
 const PostExcert = ({post}) => {
-
+  // const post = useSelector(state=>selectPostById(state,postId)) //optimized
   return (
     <article>
           
@@ -24,5 +27,6 @@ const PostExcert = ({post}) => {
       </article>
   )
 }
+
 
 export default PostExcert
